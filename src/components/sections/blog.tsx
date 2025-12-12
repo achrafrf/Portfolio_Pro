@@ -33,9 +33,8 @@ export default function BlogSection() {
   ];
 
   return (
-    <section className="bg-black py-20 text-white font-body section-spacing">
+    <section id="blog" className="bg-black py-20 text-white font-body section-spacing">
       <div className="container mx-auto px-10 max-w-[1200px]">
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="flex flex-col gap-3">
             <h6 className="text-sm font-semibold uppercase tracking-[0.05em] bg-[linear-gradient(90deg,#7C3AED_0%,#EC4899_50%,#F97316_100%)] bg-clip-text text-transparent w-fit">
@@ -46,7 +45,7 @@ export default function BlogSection() {
             </h2>
           </div>
 
-          <a href="/blog" className="group flex items-center gap-3 text-lg font-medium hover:opacity-80 transition-opacity pb-2">
+          <a href="#" className="group flex items-center gap-3 text-lg font-medium hover:opacity-80 transition-opacity pb-2">
             <span>View all</span>
             <div className="relative w-[13px] h-[13px] transition-transform duration-300 group-hover:translate-x-1 flex items-center justify-center">
               <img
@@ -60,12 +59,11 @@ export default function BlogSection() {
           </a>
         </div>
 
-        {/* Blog Items */}
         <div className="flex flex-col">
           {BLOG_POSTS.map((post) => (
             <a
               key={post.id}
-              href={`/blog/${post.slug}`}
+              href={`#`}
               className="group block py-6 border-b border-[#333333] transition-all"
             >
               <div className="flex items-center gap-3 text-sm text-white/70 mb-4 font-body">
