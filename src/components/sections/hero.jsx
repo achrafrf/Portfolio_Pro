@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="bg-white w-full font-sans text-[#1a1a1a]">
+    <section className="bg-white dark:bg-gray-900 w-full font-sans text-[#1a1a1a] dark:text-white">
       <div className="container mx-auto px-10 max-w-[1200px] pt-[70px] pb-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           <div className="flex-1 max-w-[715px]">
-            <h1 className="text-[48px] md:text-[64px] lg:text-[75px] font-bold leading-[1.1] tracking-tight text-[#1a1a1a]">
+            <h1 className="text-[48px] md:text-[64px] lg:text-[75px] font-bold leading-[1.1] tracking-tight text-[#1a1a1a] dark:text-white">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#F97316]">
                 I design products
               </span>

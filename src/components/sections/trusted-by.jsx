@@ -21,9 +21,9 @@ const logos = [
 
 export default function TrustedBySection() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white dark:bg-gray-900 py-16">
       <div className="container mx-auto px-10 max-w-[1200px]">
-        <h6 className="text-sm font-semibold uppercase tracking-[0.05em] text-[#666666] mb-10 text-center">
+        <h6 className="text-sm font-semibold uppercase tracking-[0.05em] text-[#666666] dark:text-gray-400 mb-10 text-center">
           Trusted by
         </h6>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-items-center">
@@ -34,7 +34,7 @@ export default function TrustedBySection() {
                 alt={logo.alt}
                 width={140}
                 height={60}
-                className="object-contain max-h-[60px] w-auto"
+                className="object-contain max-h-[60px] w-auto dark:invert dark:opacity-80"
               />
             </div>
           ))}

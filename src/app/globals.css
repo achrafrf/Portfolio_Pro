@@ -124,7 +124,29 @@
     --chart-3: var(--color-chart-3);
     --chart-4: var(--color-chart-4);
     --chart-5: var(--color-chart-5);
-    --radius: var(--radius-md); /* Default radius for Shadcn components */
+    --radius: var(--radius-md);
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ffffff;
+    --card: #1a1a1a;
+    --card-foreground: #ffffff;
+    --popover: #1a1a1a;
+    --popover-foreground: #ffffff;
+    --primary: #ffffff;
+    --primary-foreground: #0a0a0a;
+    --secondary: #262626;
+    --secondary-foreground: #ffffff;
+    --muted: #737373;
+    --muted-foreground: #a3a3a3;
+    --accent: #7c3aed;
+    --accent-foreground: #ffffff;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #333333;
+    --input: #333333;
+    --ring: #ffffff;
   }
 
   html {
