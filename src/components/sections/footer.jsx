@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Mail } from 'lucide-react';
 
 const ASSETS = {
-  logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/6078d43538e88cf2a8ff4464_White_20Logo-17.svg",
+  logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/6078d43538e88cf8a8ff4464_White_20Logo-17.svg",
   webflowBadgeIcon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/webflow-badge-icon_f67cd735e3-19.svg",
   webflowBadgeText: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/webflow-badge-text_6faa6a38cd-20.svg",
 };
@@ -69,7 +69,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <FooterLink href="#About">Experience</FooterLink>
               <FooterLink href="#projects">Projects</FooterLink>
-              <FooterLink href="https://twitter.com">Twitter</FooterLink>
+              <FooterLink href="#twitter.com">Twitter</FooterLink>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function Footer() {
   );
 }
 
-function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+function FooterLink({ href, children }) {
   return (
     <Link
       href={href}
