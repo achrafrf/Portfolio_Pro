@@ -35,19 +35,19 @@ export default function TestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="bg-background py-20 lg:py-32 w-full">
+    <section className="bg-background dark:bg-gray-900 py-20 lg:py-32 w-full">
       <div className="container mx-auto px-6 md:px-10 max-w-[1280px]">
         <div className="mb-16 lg:mb-24">
           <h6 className="text-[14px] font-semibold uppercase tracking-[0.05em] text-[#D4A5D9] mb-4">
             Testimonials
           </h6>
-          <h2 className="text-4xl md:text-[48px] font-bold leading-[1.2] text-[#1a1a1a]">
+          <h2 className="text-4xl md:text-[48px] font-bold leading-[1.2] text-[#1a1a1a] dark:text-white">
             Word on the street
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative w-full aspect-[4/5] md:aspect-square lg:h-[500px] lg:w-full overflow-hidden bg-gray-100">
+          <div className="relative w-full aspect-[4/5] md:aspect-square lg:h-[500px] lg:w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
             <Image
               src={currentTestimonial.image}
               alt={currentTestimonial.name}
@@ -75,17 +75,17 @@ export default function TestimonialsSection() {
             </div>
 
             <div className="mb-10 lg:mb-12 min-h-[160px] flex items-center">
-              <p className="text-[20px] md:text-[24px] lg:text-[28px] font-medium leading-[1.4] md:leading-[1.5] text-[#1a1a1a]">
+              <p className="text-[20px] md:text-[24px] lg:text-[28px] font-medium leading-[1.4] md:leading-[1.5] text-[#1a1a1a] dark:text-white">
                 {currentTestimonial.quote}
               </p>
             </div>
 
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-0 mt-auto">
               <div className="flex flex-col">
-                <h5 className="text-[18px] font-bold text-[#1a1a1a] mb-1">
+                <h5 className="text-[18px] font-bold text-[#1a1a1a] dark:text-white mb-1">
                   {currentTestimonial.name}
                 </h5>
-                <span className="text-[14px] text-[#666666]">
+                <span className="text-[14px] text-[#666666] dark:text-gray-400">
                   {currentTestimonial.title}
                 </span>
               </div>
@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
               <div className="flex items-center gap-0">
                 <button
                   onClick={handlePrev}
-                  className="group flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-black hover:bg-[#F97316] text-white transition-colors duration-300"
+                  className="group flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-black dark:bg-white hover:bg-[#F97316] text-white dark:text-black transition-colors duration-300"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:-translate-x-0.5" />
