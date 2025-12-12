@@ -5,12 +5,7 @@ import Image from 'next/image';
 
 const ARROW_ICON = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/5fef58435e05bd67f4a4c972_arrow-down-s-line_201-16.svg";
 
-type FAQItemProps = {
-  question: string;
-  answer: string;
-};
-
-const FAQItem = ({ question, answer }: FAQItemProps) => {
+const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
