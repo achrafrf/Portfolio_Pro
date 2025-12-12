@@ -102,6 +102,14 @@ export default function ProjectsSection() {
     setCurrentSlide(clampedIndex);
   };
 
+  useEffect(() => {
+    const autoSlide = setInterval(() => {
+      nextSlide();
+    }, 3000);
+
+    return () => clearInterval(autoSlide);
+  }, [currentSlide, maxIndex]);
+
   return (
     <div id="projects" className="bg-background dark:bg-gray-900 py-20 lg:py-24 text-foreground dark:text-gray-100 font-body overflow-hidden">
       <div className="container mx-auto px-5 lg:px-10 mb-12">
