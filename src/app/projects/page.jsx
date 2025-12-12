@@ -88,6 +88,21 @@ export default function ProjectsPage() {
                       {project.title}
                     </h3>
                     
+                    <p className="mb-4 text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech, idx) => (
+                        <span 
+                          key={idx}
+                          className="inline-flex items-center px-3 py-1 text-xs font-medium bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
                     <a href={project.link} className="inline-flex items-center gap-2 text-base text-[#1a1a1a] dark:text-gray-200 group/link">
                       <span className="font-medium">View Project</span>
                       <img 
