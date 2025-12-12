@@ -107,7 +107,7 @@ export default function ProjectsSection() {
           </div>
           
           <a
-            href="#"
+            href="/projects"
             className="group relative inline-flex items-center justify-center overflow-hidden bg-black dark:bg-white px-8 py-4 text-white dark:text-black min-w-[200px]"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#F97316] to-[#EC4899] translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0" />
