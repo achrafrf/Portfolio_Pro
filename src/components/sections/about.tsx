@@ -1,8 +1,9 @@
+import React from "react";
+
 export default function AboutSection() {
   return (
-    <section className="bg-background py-[80px]">
+    <section id="About" className="bg-background py-[80px]">
       <div className="container mx-auto px-6 md:px-10 max-w-[1200px]">
-        {/* Top Image Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           <div className="relative h-[320px] md:h-[400px] w-full rounded-none overflow-hidden">
             <img
@@ -27,7 +28,6 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Intro Text Block */}
         <div className="mb-20">
           <h6 className="text-[14px] font-semibold uppercase tracking-wider text-[#d4a5d9] mb-4">
             Product Designer
@@ -42,9 +42,7 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Resume Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Education Column */}
           <div>
             <div className="flex items-center gap-4 mb-10">
               <div className="w-12 h-12 relative flex-shrink-0">
@@ -79,7 +77,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Work Experience Column */}
           <div>
             <div className="flex items-center gap-4 mb-10">
               <div className="w-12 h-12 relative flex-shrink-0">
@@ -100,24 +97,24 @@ export default function AboutSection() {
                 subtitle="Senior Product Designer"
                 date="April 2019 - Current"
                 icon={<RocketIcon />}
-                iconBg="bg-[#fce7f3]" // Light pink
-                iconColor="text-[#ec4899]" // Pink
+                iconBg="bg-[#fce7f3]"
+                iconColor="text-[#ec4899]"
               />
               <ResumeItem
                 title="MusicMash"
                 subtitle="Information Architect"
                 date="April 2016 - May 2017"
                 icon={<MusicIcon />}
-                iconBg="bg-[#dbeafe]" // Light blue
-                iconColor="text-[#3b82f6]" // Blue
+                iconBg="bg-[#dbeafe]"
+                iconColor="text-[#3b82f6]"
               />
               <ResumeItem
                 title="Kingdom"
                 subtitle="UI Designer"
                 date="April 2016 - May 2017"
                 icon={<CrownIcon />}
-                iconBg="bg-[#fef9c3]" // Light yellow
-                iconColor="text-[#ca8a04]" // Yellow-gold
+                iconBg="bg-[#fef9c3]"
+                iconColor="text-[#ca8a04]"
                 isLast
               />
             </div>
@@ -152,7 +149,6 @@ function ResumeItem({
         !isLast ? "border-b border-[#e5e5e5]" : ""
       }`}
     >
-      {/* Optional Company Icon */}
       {icon && (
         <div
           className={`w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center ${iconBg} ${iconColor}`}
@@ -162,14 +158,12 @@ function ResumeItem({
       )}
 
       <div className="flex-grow w-full">
-        {/* Top Row: Title + Arrow */}
         <div className="flex justify-between items-start mb-2">
           <h5 className="text-[20px] font-bold text-[#1a1a1a]">{title}</h5>
           <div className="transform transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1">
             <ArrowIcon />
           </div>
         </div>
-        {/* Bottom Row: Subtitle + Date */}
         <div className="flex justify-between items-end flex-wrap gap-y-2">
           <span className="text-[14px] text-[#666666] font-normal">
             {subtitle}
@@ -183,7 +177,6 @@ function ResumeItem({
   );
 }
 
-// Minimal Icons to replace external dependencies if needed, or mapping strictly to what's requested
 function ArrowIcon() {
   return (
     <svg
