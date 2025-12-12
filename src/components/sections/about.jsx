@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AboutSection() {
   return (
-    <section id="About" className="bg-background py-[80px]">
+    <section id="About" className="bg-background dark:bg-gray-900 py-[80px]">
       <div className="container mx-auto px-6 md:px-10 max-w-[1200px]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           <div className="relative h-[320px] md:h-[400px] w-full rounded-none overflow-hidden">
@@ -32,10 +32,10 @@ export default function AboutSection() {
           <h6 className="text-[14px] font-semibold uppercase tracking-wider text-[#d4a5d9] mb-4">
             Product Designer
           </h6>
-          <h2 className="text-[48px] font-bold text-[#1a1a1a] leading-[1.2] mb-6">
+          <h2 className="text-[48px] font-bold text-[#1a1a1a] dark:text-white leading-[1.2] mb-6">
             That's me!
           </h2>
-          <p className="text-[18px] leading-[1.6] text-[#666666] max-w-3xl">
+          <p className="text-[18px] leading-[1.6] text-[#666666] dark:text-gray-300 max-w-3xl">
             Over the past 12 years, I've worked with a diverse range of clients,
             from startups to Fortune 500 companies. I love crafting interfaces
             that delight users and help businesses grow.
@@ -52,7 +52,7 @@ export default function AboutSection() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <h3 className="text-[32px] font-bold text-[#1a1a1a]">
+              <h3 className="text-[32px] font-bold text-[#1a1a1a] dark:text-white">
                 Education
               </h3>
             </div>
@@ -86,7 +86,7 @@ export default function AboutSection() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <h3 className="text-[32px] font-bold text-[#1a1a1a]">
+              <h3 className="text-[32px] font-bold text-[#1a1a1a] dark:text-white">
                 Work Experience
               </h3>
             </div>
@@ -133,20 +133,12 @@ function ResumeItem({
   iconBg,
   iconColor,
   isLast = false,
-}: {
-  title: string;
-  subtitle: string;
-  date: string;
-  icon?: React.ReactNode;
-  iconBg?: string;
-  iconColor?: string;
-  isLast?: boolean;
 }) {
   return (
     <a
       href="#"
       className={`group flex items-start gap-5 py-8 ${
-        !isLast ? "border-b border-[#e5e5e5]" : ""
+        !isLast ? "border-b border-[#e5e5e5] dark:border-gray-700" : ""
       }`}
     >
       {icon && (
@@ -159,16 +151,16 @@ function ResumeItem({
 
       <div className="flex-grow w-full">
         <div className="flex justify-between items-start mb-2">
-          <h5 className="text-[20px] font-bold text-[#1a1a1a]">{title}</h5>
+          <h5 className="text-[20px] font-bold text-[#1a1a1a] dark:text-white">{title}</h5>
           <div className="transform transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1">
             <ArrowIcon />
           </div>
         </div>
         <div className="flex justify-between items-end flex-wrap gap-y-2">
-          <span className="text-[14px] text-[#666666] font-normal">
+          <span className="text-[14px] text-[#666666] dark:text-gray-400 font-normal">
             {subtitle}
           </span>
-          <span className="text-[14px] text-[#1a1a1a] font-medium text-right">
+          <span className="text-[14px] text-[#1a1a1a] dark:text-gray-200 font-medium text-right">
             {date}
           </span>
         </div>
@@ -185,6 +177,7 @@ function ArrowIcon() {
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="dark:stroke-white"
     >
       <path
         d="M1.16699 12.8333L12.8337 1.16666M12.8337 1.16666H3.50033M12.8337 1.16666V10.5"
