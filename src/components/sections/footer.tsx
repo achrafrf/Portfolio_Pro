@@ -11,25 +11,22 @@ const ASSETS = {
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white pt-20 pb-10 border-t border-[#333333]">
+    <footer id="contact" className="bg-black text-white pt-20 pb-10 border-t border-[#333333]">
       <div className="w-full max-w-[1200px] mx-auto px-10">
         
-        {/* CTA Section */}
         <div className="text-center mb-20">
           <h2 className="text-[48px] md:text-[48px] font-bold leading-[1.2] mb-2 font-display text-white">
             Ready to make something kickass?
           </h2>
           <Link
-            href="/contact"
+            href="#"
             className="text-[48px] md:text-[48px] font-bold leading-[1.2] font-display inline-block bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#F97316] bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
             Let's get on a call.
           </Link>
         </div>
 
-        {/* Footer Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
-          {/* Brand & Contact Info */}
           <div className="flex flex-col items-start gap-6">
             <Link href="/" className="inline-block relative">
               <Image
@@ -58,30 +55,25 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links Grid */}
           <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8 w-full">
-            {/* Column 1 */}
             <div className="flex flex-col gap-4">
-              <FooterLink href="/about">About</FooterLink>
-              <FooterLink href="/contact">Contact</FooterLink>
+              <FooterLink href="#About">About</FooterLink>
+              <FooterLink href="#contact">Contact</FooterLink>
               <FooterLink href="https://dribbble.com">Dribbble</FooterLink>
             </div>
-            {/* Column 2 */}
             <div className="flex flex-col gap-4">
-              <FooterLink href="/services">Services</FooterLink>
-              <FooterLink href="/blog">Blog</FooterLink>
+              <FooterLink href="#Services">Services</FooterLink>
+              <FooterLink href="#blog">Blog</FooterLink>
               <FooterLink href="https://instagram.com">Instagram</FooterLink>
             </div>
-            {/* Column 3 */}
             <div className="flex flex-col gap-4">
-              <FooterLink href="/experience">Experience</FooterLink>
-              <FooterLink href="/projects">Projects</FooterLink>
+              <FooterLink href="#About">Experience</FooterLink>
+              <FooterLink href="#projects">Projects</FooterLink>
               <FooterLink href="https://twitter.com">Twitter</FooterLink>
             </div>
           </div>
         </div>
 
-        {/* Footer Bottom / Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-0 border-t border-transparent text-[#666666] text-[14px] gap-6">
           <div className="leading-relaxed">
             <span>© All rights reserved. </span>

@@ -1,14 +1,8 @@
-<file_path>
-src/components/sections/testimonials.tsx
-</file_path>
-
-<content>
 "use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
@@ -43,7 +37,6 @@ export default function TestimonialsSection() {
   return (
     <section className="bg-background py-20 lg:py-32 w-full">
       <div className="container mx-auto px-6 md:px-10 max-w-[1280px]">
-        {/* Section Heading */}
         <div className="mb-16 lg:mb-24">
           <h6 className="text-[14px] font-semibold uppercase tracking-[0.05em] text-[#D4A5D9] mb-4">
             Testimonials
@@ -53,9 +46,7 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* Content Type */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: Image */}
           <div className="relative w-full aspect-[4/5] md:aspect-square lg:h-[500px] lg:w-full overflow-hidden bg-gray-100">
             <Image
               src={currentTestimonial.image}
@@ -66,9 +57,7 @@ export default function TestimonialsSection() {
             />
           </div>
 
-          {/* Right: Content */}
           <div className="flex flex-col justify-center h-full">
-            {/* Quote Icon */}
             <div className="mb-6 lg:mb-8">
               <svg
                 width="40"
@@ -78,16 +67,6 @@ export default function TestimonialsSection() {
                 xmlns="http://www.w3.org/2000/svg"
                 className="text-[#EC4899] w-10 h-10 md:w-12 md:h-12"
               >
-                <path
-                  d="M10 8V18H14C14 20.2091 12.2091 22 10 22H6C5.44772 22 5 22.4477 5 23C5 23.5523 5.44772 24 6 24H10C13.3137 24 16 21.3137 16 18V8H10ZM24 8V18H28C28 20.2091 26.2091 22 24 22H20C19.4477 22 19 22.4477 19 23C19 23.5523 19.4477 24 20 24H24C27.3137 24 30 21.3137 30 18V8H24Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M0 8V18H6C6 20.2091 4.20914 22 2 22H0V24H2C5.31371 24 8 21.3137 8 18V8H0Z"
-                  fill="currentColor"
-                  className="hidden" // Hiding simplified path, using custom path above for fuller quote look
-                />
-                {/* Custom Serif Quote Path approximation */}
                 <path 
                    d="M9.12 6.4C6.336 8.704 4.56 12.064 4.08 16.48H9.6V25.6H0V16C0 10.72 2.784 6.208 7.392 3.2L9.12 6.4ZM24.48 6.4C21.696 8.704 19.92 12.064 19.44 16.48H24.96V25.6H15.36V16C15.36 10.72 18.144 6.208 22.752 3.2L24.48 6.4Z" 
                    fill="currentColor" 
@@ -95,16 +74,13 @@ export default function TestimonialsSection() {
               </svg>
             </div>
 
-            {/* Quote Text */}
             <div className="mb-10 lg:mb-12 min-h-[160px] flex items-center">
               <p className="text-[20px] md:text-[24px] lg:text-[28px] font-medium leading-[1.4] md:leading-[1.5] text-[#1a1a1a]">
                 {currentTestimonial.quote}
               </p>
             </div>
 
-            {/* Author and Navigation */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-0 mt-auto">
-              {/* Author Info */}
               <div className="flex flex-col">
                 <h5 className="text-[18px] font-bold text-[#1a1a1a] mb-1">
                   {currentTestimonial.name}
@@ -114,7 +90,6 @@ export default function TestimonialsSection() {
                 </span>
               </div>
 
-              {/* Navigation Arrows */}
               <div className="flex items-center gap-0">
                 <button
                   onClick={handlePrev}
@@ -138,4 +113,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-</content>
