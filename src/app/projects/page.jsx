@@ -10,6 +10,8 @@ const ASSETS = {
       id: 1,
       title: "Soulful Rebrand",
       category: "Branding",
+      description: "Complete brand identity redesign with modern aesthetics and cohesive visual language",
+      technologies: ["Next.js", "React", "Tailwind CSS", "Figma"],
       img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dc9bcd0f7a437038f60d_image_processing20200129--6.png",
       link: "#"
     },
@@ -17,6 +19,8 @@ const ASSETS = {
       id: 2,
       title: "Datadash Product design",
       category: "Product Design",
+      description: "Analytics dashboard with real-time data visualization and intuitive user experience",
+      technologies: ["Laravel", "Vue.js", "MySQL", "Redis"],
       img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dcc78ec31466630c033f_image_processing20200129--7.png",
       link: "#"
     },
@@ -24,6 +28,8 @@ const ASSETS = {
       id: 3,
       title: "Maize Website Design",
       category: "Web Design",
+      description: "Responsive e-commerce platform with seamless checkout and inventory management",
+      technologies: ["React", "Node.js", "MongoDB", "Express"],
       img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dcd635f7f176db9fef1e_image_processing20200129--8.png",
       link: "#"
     },
@@ -31,6 +37,8 @@ const ASSETS = {
       id: 4,
       title: "GorillaX Branding",
       category: "Branding",
+      description: "Bold fitness brand identity with dynamic logo system and marketing materials",
+      technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
       img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dce7ec07854a8c820c4e_image_processing20200129--9.png",
       link: "#"
     },
@@ -38,6 +46,8 @@ const ASSETS = {
       id: 5,
       title: "Joggr Website Design",
       category: "Web Design",
+      description: "Community-driven fitness app with social features and workout tracking",
+      technologies: ["Next.js", "TypeScript", "Supabase", "Stripe"],
       img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dcf54baced26f174226f_image_processing20200129--10.png",
       link: "#"
     }
