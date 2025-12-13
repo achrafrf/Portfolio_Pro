@@ -3,43 +3,44 @@
 import React from 'react';
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
+import Image from 'next/image';
 
 const ASSETS = {
   projects: [
     {
       id: 1,
-      title: "Soulful Rebrand",
+      title: "ASHGHAL",
       category: "Branding",
       description: "Complete brand identity redesign with modern aesthetics and cohesive visual language",
       technologies: ["Next.js", "React", "Tailwind CSS", "Figma"],
-      img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dc9bcd0f7a437038f60d_image_processing20200129--6.png",
+      img: "/ASHGHAL.png",
       link: "#"
     },
     {
       id: 2,
-      title: "Datadash Product design",
+      title: "Data FC",
       category: "Product Design",
       description: "Analytics dashboard with real-time data visualization and intuitive user experience",
       technologies: ["Laravel", "Vue.js", "MySQL", "Redis"],
-      img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dcc78ec31466630c033f_image_processing20200129--7.png",
+      img: "/datafcp.png",
       link: "#"
     },
     {
       id: 3,
-      title: "Maize Website Design",
+      title: "Progasur",
       category: "Web Design",
       description: "Responsive e-commerce platform with seamless checkout and inventory management",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
-      img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dcd635f7f176db9fef1e_image_processing20200129--8.png",
+      img: "/IMGProjects/progasur.png",
       link: "#"
     },
     {
       id: 4,
-      title: "GorillaX Branding",
+      title: "Convertermora",
       category: "Branding",
       description: "Bold fitness brand identity with dynamic logo system and marketing materials",
       technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
-      img: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6077dce7ec07854a8c820c4e_image_processing20200129--9.png",
+      img: "/IMGProjects/convertermora.png",
       link: "#"
     },
     {
@@ -83,9 +84,10 @@ export default function ProjectsPage() {
                   className="group block bg-white dark:bg-gray-800 h-full relative"
                 >
                   <div className="relative mb-5 overflow-hidden w-full h-[320px]">
-                    <img 
+                    <Image 
                       src={project.img} 
                       alt={project.title}
+                      fill
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>

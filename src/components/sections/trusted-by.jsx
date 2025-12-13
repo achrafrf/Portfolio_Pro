@@ -1,45 +1,94 @@
+"use client";
+
 import Image from "next/image";
 
 const logos = [
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6078b0cd748b8581836fddf5_Group_20334-2.png",
-    alt: "Company 1",
+    src: "/ofppt.png",
+    alt: "OFPPT",
   },
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6078b0ccdbeafadf1a24d34a_Group_20333-3.png",
-    alt: "Company 2",
+    src: "/emmap.png",
+    alt: "EMMAP",
   },
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6078b0c238e88c2e55fe84cf_Group_20335-4.png",
-    alt: "Company 3",
+    src: "/datafc.png",
+    alt: "DataFC",
   },
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/6078b0c235209438ffca029b_Group_20336-5.png",
-    alt: "Company 4",
+    src: "/openclassrom.webp",
+    alt: "OpenClassrooms",
   },
 ];
 
 export default function TrustedBySection() {
   return (
-    <section className="bg-white dark:bg-gray-900 py-16">
-      <div className="container mx-auto px-10 max-w-[1200px]">
-        <h6 className="text-sm font-semibold uppercase tracking-[0.05em] text-[#666666] dark:text-gray-400 mb-10 text-center">
-          Trusted by
+    <section className="bg-white dark:bg-neutral-950 py-16 overflow-hidden">
+      <div className="container mx-auto px-5 lg:px-10 max-w-[1200px]">
+        <h6 className="text-sm font-bold uppercase tracking-[0.2em] text-[#666666] dark:text-gray-400 mb-12 text-center">
+          EDUCATION & INSTITUTIONS
         </h6>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-items-center">
-          {logos.map((logo, index) => (
-            <div key={index} className="flex items-center justify-center h-[60px] opacity-80 hover:opacity-100 transition-opacity">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={140}
-                height={60}
-                className="object-contain max-h-[60px] w-auto dark:invert dark:opacity-80"
-              />
-            </div>
-          ))}
+
+        {/* 
+          Container الرئيسي
+          - [mask-image] هو السر لعمل التدرج في الجوانب (Fade effect)
+        */}
+        <div 
+          className="relative w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
+        >
+          {/* 
+            هذا الـ Ul يتحرك باستمرار 
+            نقوم بتكراره مرتين لخلق الوهم بالحركة اللانهائية
+          */}
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+            {logos.map((logo, index) => (
+              <li key={index}>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={140}
+                  height={60}
+                  className="h-[50px] w-auto object-contain"
+                />
+              </li>
+            ))}
+          </ul>
+
+          {/* النسخة الثانية (Duplicate) للعملية اللانهائية */}
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll" aria-hidden="true">
+            {logos.map((logo, index) => (
+              <li key={`duplicate-${index}`}>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={140}
+                  height={60}
+                  className="h-[50px] w-auto object-contain"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+
+      {/* 
+         إضافة الـ Animation في نفس الملف 
+         (يمكنك إضافتها في tailwind.config.js للحصول على كود أنظف)
+      */}
+      <style jsx global>{`
+        @keyframes infinite-scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-100%);
+          }
+        }
+        .animate-infinite-scroll {
+          animation: infinite-scroll 20s linear infinite;
+        }
+        /* لتغيير الاتجاه (من اليسار لليمين) فقط اعكس القيم في الـ keyframes */
+      `}</style>
     </section>
   );
 }

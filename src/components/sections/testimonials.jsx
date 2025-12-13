@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="bg-background dark:bg-gray-900 py-20 lg:py-32 w-full">
+    <section className="bg-background dark:bg-neutral-950 py-20 lg:py-32 w-full">
       <div className="container mx-auto px-6 md:px-10 max-w-[1280px]">
         <div className="mb-16 lg:mb-24">
           <h6 className="text-[14px] font-semibold uppercase tracking-[0.05em] text-[#D4A5D9] mb-4">

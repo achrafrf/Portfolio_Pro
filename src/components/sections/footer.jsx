@@ -3,11 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Mail } from 'lucide-react';
 
-const ASSETS = {
-  logo: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/6078d43538e88cf8a8ff4464_White_20Logo-17.svg",
-  webflowBadgeIcon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/webflow-badge-icon_f67cd735e3-19.svg",
-  webflowBadgeText: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/webflow-badge-text_6faa6a38cd-20.svg",
-};
 
 export default function Footer() {
   return (
@@ -28,18 +23,28 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
           <div className="flex flex-col items-start gap-6">
-            <Link href="/" className="inline-block relative">
-              <Image
-                src={ASSETS.logo}
-                alt="Portfolio Creator"
-                width={203}
-                height={41}
-                className="w-[203px] h-auto object-contain"
-              />
-            </Link>
+             <Link 
+            href="/" 
+            className="shrink-0 flex items-center group"
+            aria-label="home"
+          >
+            <span 
+              className="text-3xl font-black tracking-widest text-black transition-transform duration-300 group-hover:scale-105"
+              style={{
+                // 1. هنا زدنا السمك لـ 2px باش يبان واضح
+                WebkitTextStroke: "2px white", 
+                // 2. هادي مهمة جداً: كاتخلي الـ Stroke يخرج لبرا وماياكلش من اللون الأبيض
+                paintOrder: "stroke fill",
+                // 3. تأثير ظل خفيف باش يزيد يوضح الإطار
+                filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.2))" 
+              }}
+            >
+              PORTFOLIO
+            </span>
+          </Link>
             
             <address className="not-italic text-[#666666] text-[14px] leading-relaxed">
-              4353 Delaware Avenue,<br /> San Francisco, USA
+              Safi, Morocco
             </address>
             
             <div className="flex items-center gap-3">
@@ -50,7 +55,7 @@ export default function Footer() {
                 href="mailto:hi@thefolio.com"
                 className="text-[#666666] text-[14px] font-medium hover:text-white transition-colors"
               >
-                hi@thefolio.com
+                itsachrafrafiq@gmail.com
               </a>
             </div>
           </div>
@@ -77,9 +82,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-0 border-t border-transparent text-[#666666] text-[14px] gap-6">
           <div className="leading-relaxed">
             <span>© All rights reserved. </span>
-            <span className="text-[#999999]">Conversionflow</span>
+            <span className="text-[#999999]">Achraf Rf</span>
             <span>. Powered by </span>
-            <span className="text-[#999999]">Webflow</span>
+            <span className="text-[#999999]">Achraf Rafiq</span>
             <span> / </span>
             <a href="#" className="hover:text-white transition-colors">Image License Info</a>
             <span> / </span>
@@ -90,27 +95,6 @@ export default function Footer() {
             <a href="#" className="hover:text-white transition-colors">Style Guide</a>
           </div>
 
-          <a
-            href="https://webflow.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white rounded-[3px] px-2 py-1 flex items-center gap-2 h-[26px] opacity-90 hover:opacity-100 transition-opacity cursor-pointer shrink-0"
-          >
-            <Image
-              src={ASSETS.webflowBadgeIcon}
-              width={16}
-              height={16}
-              alt=""
-              className="w-4 h-4"
-            />
-            <Image
-              src={ASSETS.webflowBadgeText}
-              width={58}
-              height={12}
-              alt="Made in Webflow"
-              className="h-3 w-auto"
-            />
-          </a>
         </div>
       </div>
     </footer>

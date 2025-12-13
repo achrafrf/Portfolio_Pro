@@ -3,63 +3,77 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="bg-white dark:bg-gray-900 w-full font-sans text-[#1a1a1a] dark:text-white">
-      <div className="container mx-auto px-10 max-w-[1200px] pt-[70px] pb-20">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-          <div className="flex-1 max-w-[715px]">
-            <h1 className="text-[48px] md:text-[64px] lg:text-[75px] font-bold leading-[1.1] tracking-tight text-[#1a1a1a] dark:text-white">
+    <section className="bg-white dark:bg-neutral-950 w-full font-sans text-[#1a1a1a] dark:text-white transition-colors duration-300">
+      {/* Container: Adjusted padding for mobile (px-6) and desktop (px-10) */}
+      <div className="container mx-auto px-6 md:px-10 max-w-[1200px] pt-[50px] pb-16 md:pt-[70px] md:pb-20">
+        
+        {/* Flex layout: Stacked on mobile (flex-col), Row on Desktop (lg:flex-row) */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+          
+          {/* Text Content */}
+          <div className="flex-1 max-w-[715px] text-center lg:text-left">
+            <h1 className="text-[40px] md:text-[60px] lg:text-[75px] font-bold leading-[1.1] tracking-tight text-[#1a1a1a] dark:text-white">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#F97316]">
-                I design products
+                Full-Stack Wizard
               </span>
               <br />
-              that delight and inspire people.
+              building scalable web solutions.
             </h1>
 
-            <p className="mt-8 text-[18px] md:text-[22px] leading-[1.6] text-[#666666] max-w-[540px]">
-              Hi! I'm Jake, a product designer based in Berlin. I create user-friendly interfaces for fast-growing startups.
+            <p className="mt-6 md:mt-8 text-[16px] md:text-[20px] lg:text-[22px] leading-[1.6] text-[#666666] dark:text-gray-300 max-w-[540px] mx-auto lg:mx-0">
+              Hi! I'm <span className="font-semibold text-black dark:text-white">Achraf</span>, a developer based in Morocco. I build robust back-ends and interactive front-ends using React, Next.js, and Node.js.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-8">
+            {/* Buttons Area */}
+            <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8">
               <Link
                 href="#contact"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-black text-white font-semibold text-base overflow-hidden min-w-[160px]"
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-black dark:bg-white dark:text-black text-white font-semibold text-base overflow-hidden rounded-lg w-full sm:w-auto min-w-[160px]"
               >
                 <div className="relative z-10 transition-transform duration-300 group-hover:-translate-y-[150%]">
-                  Book a call
+                  Hire Me
                 </div>
-                <div className="absolute inset-0 z-10 flex items-center justify-center text-white translate-y-[150%] transition-transform duration-300 group-hover:translate-y-0">
-                  Let's talk now!
+                <div className="absolute inset-0 z-10 flex items-center justify-center translate-y-[150%] transition-transform duration-300 group-hover:translate-y-0">
+                  Let's Code!
                 </div>
                 <div className="absolute inset-0 bg-[#F97316] translate-y-full transition-transform duration-300 group-hover:translate-y-0 z-0"></div>
               </Link>
 
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 text-base font-semibold text-[#1a1a1a] hover:opacity-80 transition-opacity"
+                className="inline-flex items-center gap-2 text-base font-semibold text-[#1a1a1a] dark:text-white hover:opacity-80 transition-opacity"
               >
-                <span>Download CV</span>
-                <div className="w-[13px] h-[13px] relative">
-                  <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/svgs/5ff019fc559a4200eda62273_Vector-2.svg"
-                    alt=""
-                    width={13}
-                    height={13}
-                    className="object-contain"
-                  />
-                </div>
+                <span>View Github</span>
+                {/* Replaced external image with simple SVG for reliability */}
+                <svg 
+                  width="14" 
+                  height="14" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
               </Link>
             </div>
           </div>
 
-          <div className="relative w-full max-w-[400px] flex-shrink-0">
+          {/* Image Content */}
+          <div className="relative w-full max-w-[350px] lg:max-w-[400px] flex-shrink-0 mt-8 lg:mt-0">
+            {/* Added a nice gradient border effect behind the image */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#7C3AED] to-[#F97316] rounded-xl blur opacity-30 animate-pulse"></div>
+            
             <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/504b9c01-e771-4c77-838c-e978ddcf8e10-portfolio-webflow-html-website-template-webflow-io/assets/images/60ad1c2b0e1d633fc7ef2e69_Group_20160-min-1.jpg"
-              alt="Jake - Product Designer"
+              src="/image-portfolio.png" // Dir tswira dyalk hna (Example: coding setup or profile pic)
+              alt="Full Stack Developer"
               width={400}
               height={500}
               quality={90}
               priority
-              className="w-full h-auto rounded-xl object-cover"
+              className="relative w-full h-auto md:h-[500px] rounded-xl object-cover shadow-2xl"
             />
           </div>
         </div>

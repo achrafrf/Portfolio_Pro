@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+// هاد جوج سطور هما الحل لمشكل __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
@@ -33,4 +38,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1765577868578

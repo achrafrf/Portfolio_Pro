@@ -1,7 +1,7 @@
 import Navbar from "@/components/sections/navbar";
 import HeroSection from "@/components/sections/hero";
 import TrustedBySection from "@/components/sections/trusted-by";
-import ServicesSection from "@/components/sections/services";
+import SkillsSection from "../components/sections/skills";
 import ProjectsSection from "@/components/sections/projects";
 import BlogSection from "@/components/sections/blog";
 import AboutSection from "@/components/sections/about";
@@ -11,12 +11,12 @@ import Footer from "@/components/sections/footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900">
+    <main className="min-h-screen bg-white dark:bg-neutral-950">
       <Navbar />
       <div className="pt-[81px]">
         <HeroSection />
         <TrustedBySection />
-        <ServicesSection />
+        <SkillsSection />
         <ProjectsSection />
         <BlogSection />
         <AboutSection />
