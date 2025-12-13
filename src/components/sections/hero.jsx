@@ -12,16 +12,17 @@ export default function HeroSection() {
           
           {/* Text Content */}
           <div className="flex-1 max-w-[715px] text-center lg:text-left">
-            <h1 className="text-[40px] md:text-[60px] lg:text-[75px] font-bold leading-[1.1] tracking-tight text-[#1a1a1a] dark:text-white">
+            <h1 className="text-[40px] md:text-[50px] lg:text-[65px] font-bold leading-[1.1] tracking-tight text-[#1a1a1a] dark:text-white">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#F97316]">
-                Full-Stack Wizard
+                Full-Stack Developer 
               </span>
               <br />
-              building scalable web solutions.
+                <span className="text-4xl">building scalable web solutions.</span>
             </h1>
 
             <p className="mt-6 md:mt-8 text-[16px] md:text-[20px] lg:text-[22px] leading-[1.6] text-[#666666] dark:text-gray-300 max-w-[540px] mx-auto lg:mx-0">
-              Hi! I'm <span className="font-semibold text-black dark:text-white">Achraf</span>, a developer based in Morocco. I build robust back-ends and interactive front-ends using React, Next.js, and Node.js.
+              Hi! I'm <span className="font-semibold text-black dark:text-white">Achraf Rafiq</span>, I’m a dedicated Full-Stack Developer building modern web applications.
+               I leverage a wide range of frameworks to engineer robust back-ends and interactive front-ends, delivering complete digital solutions.
             </p>
 
             {/* Buttons Area */}

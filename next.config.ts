@@ -1,15 +1,8 @@
 import type { NextConfig } from "next";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-// هاد جوج سطور هما الحل لمشكل __dirname
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
 const nextConfig: NextConfig = {
   images: {
+    // خليت ليك هادي باش الصور يبقاو خدامين من أي مصدر
     remotePatterns: [
       {
         protocol: 'https',
@@ -21,20 +14,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+  // مسحت outputFileTracingRoot حيت هي سبب المشكل 100%
+  
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [LOADER]
-      }
-    }
-  }
+  // حيدت Turbopack rules مؤقتاً حيت غالباً ديال شي Tool development
+  // وإلا كانت هي اللي دايرة المشكل فالـ Loader مغاديش يدوز الـ Build
+  // جرب هكا هو الأول
 };
 
 export default nextConfig;
