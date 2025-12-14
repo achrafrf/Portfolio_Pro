@@ -59,19 +59,19 @@ export default function AboutSection() {
 
             <div className="flex flex-col">
               <ResumeItem
-                title="Stanford University"
-                subtitle="MSc (Human Computer Interaction)"
-                date="2013-2015"
+                title="Baccalauréat Sciences de la Vie et de la Terre (SVT)"
+                subtitle="École Salah Eddine Al Ayoubi – SAFI"
+                date="2021-2022"
               />
               <ResumeItem
-                title="MIT Summer School"
-                subtitle="UX Training Bootcamp"
-                date="2013-2014"
+                title="Technicien Spécialisé – Développement Digital"
+                subtitle="INSTITUT SPECIALISE DE TECHNOLOGIE APPLIQUEE NTIC -SAFI"
+                date="2022-2024"
               />
               <ResumeItem
-                title="California State University"
-                subtitle="BSc in Software Engineering"
-                date="2009-2012"
+                title="Licence Professionnelle Ingénierie Logiciels Et Développement D applications"
+                subtitle="Ecole marocaine des métiers appliqués (EMMAP)"
+                date="2025-2026"
                 isLast
               />
             </div>
