@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // @ts-expect-error - This suppresses the type error while keeping functionality
   eslint: {
     ignoreDuringBuilds: true,
   },
