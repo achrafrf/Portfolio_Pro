@@ -19,7 +19,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="w-full bg-transparent z-[1000] relative">
+    <div className="w-full bg-transparent relative">
       <div 
         role="banner" 
         className="block fixed top-0 left-0 right-0 w-full h-[81px] bg-white dark:bg-neutral-950 z-[1000] border-b border-[#e5e5e5] dark:border-gray-700 transition-colors duration-300"
