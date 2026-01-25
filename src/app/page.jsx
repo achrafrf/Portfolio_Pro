@@ -10,7 +10,6 @@ import AboutSection from "@/components/sections/about";
 import TestimonialsSection from "@/components/sections/testimonials";
 import FAQSection from "@/components/sections/faq";
 import AchrafFinalExperience from "../components/sections/HeroSnellenberg";
-import DesignSection from "../components/sections/DesignSection";
 import Footer from "@/components/sections/footer";
 
 export default function Home() {
@@ -27,7 +26,6 @@ export default function Home() {
         <ProjectsSection />
         <BlogSection />
         <AboutSection />
-        <DesignSection />
         <TestimonialsSection />
         <FAQSection />
         <Footer />

@@ -1,211 +1,152 @@
 "use client";
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Github, Linkedin, ExternalLink, Mail } from 'lucide-react';
+import Preloader from '../Preloader'; 
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const AchrafFinalExperience = () => {
+export default function AchrafExperience() {
+  const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef(null);
-  const mainCardRef = useRef(null);
-  const modernContentRef = useRef(null);
+  const cardRef = useRef(null);
+  const landscapeRef = useRef(null);
 
   useGSAP(() => {
-    // تفعيل تسريع الجرافيكس لضمان الخفة
-    gsap.set([mainCardRef.current, ".content-element", ".bg-tech-text"], { 
-      force3D: true, 
-      willChange: "transform, opacity" 
-    });
+    if (isLoading) return;
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: "+=200%", 
-        scrub: 1, // سكرول سليس جداً
+        end: "+=2500", 
+        scrub: 1,
         pin: true,
+        pinSpacing: true,
+        refreshPriority: 2, // كيبقى هو الأول فالحساب
         anticipatePin: 1,
       }
     });
 
-    // 1. حركة الخلفية (بسرعة واحترافية)
-    tl.to(".bg-tech-text", { 
-      x: (i) => i === 0 ? -300 : 300, 
-      opacity: 0, 
-      duration: 1,
-      ease: "power2.inOut" 
-    }, "start")
-    
-    .to(".blueprint-grid", { 
-      scale: 1.2, 
-      opacity: 0, 
-      duration: 1,
-      ease: "power2.in" 
-    }, "start")
+    // 1. تحريك الخلفية
+    tl.to(".bg-text", { scale: 1.1, opacity: 0, duration: 1 }, "start")
+      .to(".grid-pattern", { opacity: 0.02, duration: 1 }, "start")
 
-    // 2. الكارطة كتحل وتولي سيكشن (بأبعاد دقيقة)
-    .to(mainCardRef.current, {
-        rotate: 90,
-        width: "100vh", 
-        height: "100vw",
-        borderRadius: "0px",
-        duration: 1.5,
-        ease: "expo.inOut" 
+    // 2. الكارطة كتحل
+    .to(cardRef.current, {
+      rotate: 90,
+      width: "100vh", 
+      height: "100vw",
+      borderRadius: "0px",
+      duration: 3, 
+      ease: "power2.inOut"
     }, "start")
 
-    .to(".portrait-ui", { 
-      opacity: 0, 
-      scale: 0.9,
-      duration: 0.4,
-      ease: "power2.in" 
-    }, "start+=0.3")
+    // 3. تبديل المحتوى
+    .to(".portrait-content", { opacity: 0, duration: 1 }, "start+=0.5")
+    .to(landscapeRef.current, { opacity: 1, scale: 1, duration: 2, ease: "power3.out" }, "start+=1.5")
 
-    // 3. إظهار المحتوى النهائي (2026 Style)
-    .fromTo(modernContentRef.current, 
-        { opacity: 0, y: 50, filter: "blur(15px)" },
-        { 
-          opacity: 1, 
-          y: 0, 
-          filter: "blur(0px)", 
-          duration: 1, 
-          ease: "expo.out" 
-        }, 
-        "start+=1"
-    )
+    // 4. أنيميشين ديال الهضرة (الـ About) - خفيفة ونقية
+    .from(".reveal-text", {
+      y: 30,
+      opacity: 0,
+      stagger: 0.2, // كيبانو وحدة مورا وحدة
+      duration: 1.5,
+      ease: "power2.out"
+    }, "start+=2")
 
-    .from(".skill-line", { 
-      scaleX: 0, 
-      stagger: 0.05, 
-      duration: 0.8, 
-      ease: "expo.out" 
-    }, "start+=1.2");
+    // 5. وقفة خفيفة فالاخير
+    .to({}, { duration: 2 }); 
 
-  }, { scope: containerRef });
+    ScrollTrigger.refresh();
+  }, { scope: containerRef, dependencies: [isLoading] });
 
   return (
-    <main className="bg-[#020202] text-white selection:bg-orange-500 overflow-x-hidden font-sans antialiased">
+    <>
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      {/* Navbar - Fixed & Minimal */}
-      
-
-      {/* Main Container - Strict Centering */}
-      <div ref={containerRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden p-0 m-0">
+      <main ref={containerRef} className="relative h-screen w-full bg-[#f4f4f4] dark:bg-neutral-950 overflow-hidden font-sans">
         
-        {/* Background Blueprint Grid */}
-        <div className="blueprint-grid absolute inset-0 opacity-[0.03] pointer-events-none" 
-             style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
+        {/* --- Background Blueprint Grid --- */}
+        <div className="grid-pattern absolute inset-0 opacity-[0.05] dark:opacity-[0.1] pointer-events-none z-0 text-black dark:text-white" 
+     style={{ 
+       backgroundImage: `linear-gradient(currentColor 1.5px, transparent 1.5px), linear-gradient(90deg, currentColor 1.5px, transparent 1.5px)`, 
+       backgroundSize: '45px 45px' 
+     }} />
+
+        {/* --- Background Text --- */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none select-none uppercase italic">
+          <div className="bg-text flex flex-col items-center">
+            <h1 className="text-[14vw] font-black text-[#0a0a0a] dark:text-white leading-[0.8] tracking-tighter">Software</h1>
+<h1 className="text-[14vw] font-black leading-[0.8] tracking-tighter text-black dark:text-white" 
+    style={{ WebkitTextStroke: '1.5px currentColor', WebkitTextFillColor: 'transparent' }}>
+  Engineer
+</h1>          </div>
         </div>
 
-        {/* Background Outlined Text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0">
-            <h1 className="bg-tech-text text-[17vw] font-[1000] text-transparent leading-none tracking-tighter"
-                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.08)' }}>
-                SOFTWARE
-            </h1>
-            <h1 className="bg-tech-text text-[17vw] font-[1000] text-transparent leading-none tracking-tighter"
-                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.08)' }}>
-                ENGINEER
-            </h1>
-        </div>
-
-        {/* --- THE PORTAL CARD --- */}
-        <div 
-          ref={mainCardRef} 
-          className="relative w-[310px] h-[460px] md:w-[410px] md:h-[480px] bg-[#070707] border border-white/10 z-50 flex items-center justify-center overflow-hidden shadow-[0_0_100px_rgba(0,0,0,1)]"
-          style={{ borderRadius: '1.5rem' }}
-        >
+        {/* --- THE MAIN CARD --- */}
+        <div className="absolute inset-0 flex items-center justify-center z-50">
+          <div ref={cardRef} className="relative w-[320px] h-[480px] md:w-[380px] md:h-[480px] bg-[#0a0a0a] dark:bg-[#ffff] flex items-center justify-center overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.4)]" style={{ borderRadius: '2.5rem' }}>
             
-            {/* Portrait UI (Initial State) */}
-            <div className="portrait-ui absolute inset-0 flex flex-col p-8 z-10">
-                <div className="flex justify-between items-center mb-6">
-                    <div className="flex items-center gap-2 px-2.5 py-1 bg-green-500/5 rounded-full border border-green-500/20">
-                        <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></span>
-                        <span className="text-[7px] font-black uppercase tracking-wider text-green-500">Available for work</span>
-                    </div>
-                    <span className="font-mono text-[8px] opacity-20 uppercase tracking-widest">v2.026</span>
-                </div>
-
-                <div className="flex-1 relative">
-                    <div className="absolute inset-0 bg-orange-500/5 blur-[50px] rounded-full"></div>
-                    <Image src="/achraf-rf.png" alt="Achraf Rafiq" fill className="object-contain relative z-10 scale-105" priority />
-                </div>
-
-                <div className="mt-6 flex flex-col items-center text-center gap-1.5">
-                    <span className="font-black text-[10px] tracking-[0.5em] text-white uppercase">Achraf Rafiq</span>
-                    <p className="text-[8px] text-neutral-500 font-mono uppercase tracking-[0.1em] leading-relaxed">
-                        Full-Stack Engineer <br/> Crafting robust digital systems
-                    </p>
-                    <div className="w-6 h-[1px] bg-orange-500/30 mt-1"></div>
-                </div>
+            {/* Portrait State */}
+            <div className="portrait-content absolute inset-0 flex flex-col p-12 items-center justify-between text-white uppercase font-mono tracking-[0.3em] text-[10px]">
+              <div className="w-full  flex justify-between opacity-30"><span className='dark:text-black'>ACHRAF_V2.0</span><span className="text-orange-500">DEPLOY_READY</span></div>
+              <div className="relative w-full h-[60%] flex items-center justify-center "><Image src="/achraf-rf.png" alt="Achraf" fill className="object-contain scale-[1.15]" priority /></div>
+              <div className="text-center"><h2 className="text-2xl text-white font-black tracking-tight uppercase dark:text-black">Achraf Rafiq</h2><div className="h-0.5 w-10 bg-orange-500 mx-auto mt-2"></div></div>
             </div>
 
-            {/* Landscape UI (Expanded State) */}
-            <div 
-                ref={modernContentRef} 
-                className="absolute w-screen h-screen flex flex-col md:flex-row items-center justify-between px-[10vw] py-[10vh] rotate-[-90deg] opacity-0"
-            >
-                {/* Info Side */}
-                <div className="content-element space-y-6">
-                    <div className="space-y-2">
-                        <div className="flex items-center gap-3 text-orange-500 font-mono text-xs font-bold uppercase tracking-tighter">
-                            <span className="w-8 h-[1px] bg-orange-500"></span>
-                            Software Architect
-                        </div>
-                        <h2 className="text-6xl md:text-[9vw] font-[1000] tracking-tighter leading-[0.85] uppercase">
-                            Achraf <br/> Rafiq
-                        </h2>
-                    </div>
-                    
-                    <button className="group relative px-7 py-3.5 bg-white text-black rounded-full font-black uppercase text-[9px] tracking-[0.2em] flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 overflow-hidden">
-                        <span className="relative z-10">View Portfolio</span>
-                        <ExternalLink size={12} className="relative z-10" />
-                        <div className="absolute inset-0 bg-orange-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                    </button>
+            {/* Landscape State (Expanded) */}
+            <div ref={landscapeRef} className="absolute w-screen h-screen bg-[#080808] flex flex-col md:flex-row items-center justify-between px-[8vw] py-[10vh] rotate-[-90deg] opacity-0 text-white">
+              
+              {/* Left Side: Personal Info */}
+              <div className="flex-[1.2] space-y-10">
+                <div className="reveal-text space-y-4">
+                  <div className="flex items-center gap-3"><span className="h-[1px] w-8 bg-orange-500"></span><span className="text-orange-500 font-mono text-[10px] tracking-[0.4em] uppercase font-bold">About Me</span></div>
+                  <h2 className="text-7xl text-white md:text-[9vw] font-black leading-[0.85] tracking-tighter uppercase italic dark:text-white">Achraf <br/> <span className="text-neutral-900" style={{ WebkitTextStroke: '1px #fff' }}>Rafiq</span></h2>
                 </div>
 
-                {/* Skills Side */}
-                <div className="content-element max-w-lg w-full space-y-10">
-                    <div className="p-8 bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-3xl shadow-2xl">
-                        <p className="text-xl md:text-2xl text-neutral-200 font-medium leading-tight italic">
-                            “Engineering <span className="text-white font-black underline decoration-orange-500 underline-offset-8">scalable solutions</span> and seamless interfaces for the modern web.”
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-8">
-                        {[
-                            { label: 'Technical_Stack', tech: 'Next.js / TS / Node' },
-                            { label: 'Cloud_Architecture', tech: 'AWS / Docker / SQL' }
-                        ].map((item, idx) => (
-                            <div key={idx} className="space-y-2.5">
-                                <p className="text-[8px] font-mono text-neutral-600 uppercase tracking-[0.3em]">{item.label}</p>
-                                <p className="text-[11px] font-black tracking-widest uppercase">{item.tech}</p>
-                                <div className="h-[1px] bg-white/5 w-full">
-                                    <div className="skill-line h-full bg-orange-500 w-full origin-left"></div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                <div className="reveal-text max-w-xl space-y-6">
+                  <p className="text-lg md:text-xl text-neutral-400 font-light leading-relaxed italic">
+                    I am a passionate <span className="text-white font-bold">Software Engineering student</span> with a strong background in Full-Stack development. Currently leveling up at <span className="text-white underline decoration-orange-500 underline-offset-8">EMMAP</span>, focusing on Distributed Architectures & Cloud Computing.
+                  </p>
+                  <p className="text-sm md:text-base text-neutral-500 font-light leading-relaxed">
+                    With over a year of professional experience using <span className="text-white">Next.js, TypeScript, and Laravel</span>, I bridge the gap between high-performance backends and modern frontends.
+                  </p>
                 </div>
+              </div>
+
+              {/* Right Side: Skill Highlights */}
+              <div className="flex-1 max-w-md w-full mt-10 md:mt-0 space-y-12">
+                <div className="reveal-text p-8 border-l border-orange-500/30 bg-white/[0.02] backdrop-blur-sm italic text-neutral-300 text-xl leading-snug">
+                  "I am driven by <span className="text-white font-bold">clean code</span>, software scalability, and solving complex problems through technology."
+                </div>
+
+                <div className="reveal-text grid grid-cols-2 gap-8 uppercase font-bold text-[10px] tracking-[0.2em]">
+                  {[
+                    { label: 'Cloud', val: 'AWS / Azure' },
+                    { label: 'Backend', val: 'Advanced Java' },
+                    { label: 'Frontend', val: 'GSAP / Tailwind' },
+                    { label: 'Arch', val: 'Distributed' }
+                  ].map((item, i) => (
+                    <div key={i} className="space-y-2 group">
+                      <span className="text-orange-500 opacity-60">0{i+1} // {item.label}</span>
+                      <p className="text-white text-sm group-hover:text-orange-500 transition-colors tracking-widest">{item.val}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
+
+          </div>
         </div>
 
-        {/* Subtle Ambient Glow */}
-        <div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-orange-600/5 blur-[120px] rounded-full pointer-events-none" />
-      </div>
-
-      <style jsx>{`
-        h1, h2 { font-family: 'Inter', sans-serif; }
-        .blueprint-grid {
-          mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-        }
-      `}</style>
-    </main>
+        {/* Grain Overlay for Premium Look */}
+        <div className="absolute inset-0 pointer-events-none z-[60] opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+      </main>
+    </>
   );
-};
-
-export default AchrafFinalExperience;
+}
